@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda meeting 22-05-2024</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        flex-direction: column;
+    }
+    .loading-bar {
+        width: 500px;
+        height: 5px;
+        background-color: #ccc;
+        position: relative;
+        margin-bottom: 20px;
+        opacity: 1;
+        transition: opacity 1s ease-in-out;
+    }
+    .loading-bar-inner {
+        width: 0;
+        height: 100%;
+        background-color: red;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: width 5s linear;
+    }
+    .hacked-text {
+        font-size: 24px;
+        color: red;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+</style>
+</head>
+<body>
+<div class="loading-bar">
+    <div class="loading-bar-inner"></div>
+</div>
+<div class="hacked-text">HACKED</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var loadingBar = document.querySelector(".loading-bar");
+        var loadingBarInner = document.querySelector(".loading-bar-inner");
+        var hackedText = document.querySelector(".hacked-text");
+
+        // Filling the loading bar slowly
+        setTimeout(function() {
+            loadingBarInner.style.width = "100%";
+            // Hiding the loading bar after 5 seconds
+            setTimeout(function() {
+                loadingBar.style.opacity = "0";
+                // Showing "HACKED" after 3 seconds
+                setTimeout(function() {
+                    hackedText.style.opacity = "1";
+                }, 1000);
+            }, 5000);
+        }, 100);
+
+    });
+</script>
+</body>
+</html>
